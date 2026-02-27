@@ -1,38 +1,504 @@
-.App {
-  text-align: center;
+/* =========================================================================
+   FESTIVAL HERITAGE - PREMIUM DESIGN SYSTEM
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+:root {
+  /* Vibrant & Sophisticated Color Palette */
+  --bg-dark: #0f172a;          /* Deep Slate */
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+  --surface-color: rgba(30, 41, 59, 0.6); /* Glass surface */
+  --surface-border: rgba(255, 255, 255, 0.1);
+  
+  --primary: #f43f5e;          /* Rose */
+  --primary-hover: #e11d48;
+  --secondary: #8b5cf6;        /* Violet */
+  --secondary-hover: #7c3aed;
+  --accent: #f59e0b;           /* Amber */
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dark: #0f172a;        /* For inputs/light cards */
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+
+  /* Spacings */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+
+  /* Effects */
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --glass-blur: blur(16px);
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-dark);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  line-height: 1.6;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* =========================================================================
+   UTILITIES & TYPOGRAPHY
+   ========================================================================= */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  min-height: 80vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 3.5rem;
+  margin-bottom: var(--spacing-lg);
+  background: linear-gradient(to right, #f43f5e, #8b5cf6, #f43f5e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: shine 5s linear infinite;
+  letter-spacing: -1px;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: -2rem auto var(--spacing-lg) auto;
+  font-family: var(--font-sans);
+  font-weight: 300;
+}
+
+/* Glassmorphism Container */
+.glass-container {
+  background: var(--surface-color);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--surface-border);
+  border-radius: 24px;
+  box-shadow: var(--glass-shadow);
+  padding: var(--spacing-lg);
+}
+
+/* =========================================================================
+   BUTTONS
+   ========================================================================= */
+button {
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  border-radius: 12px;
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 14px 28px;
+  font-size: 1rem;
+  box-shadow: 0 4px 14px 0 rgba(244, 63, 94, 0.39);
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(244, 63, 94, 0.5);
+}
+
+.secondary-btn {
+  background: rgba(255,255,255,0.1);
+  color: var(--text-main);
+  border: 1px solid var(--surface-border);
+  padding: 12px 24px;
+}
+
+.secondary-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* =========================================================================
+   NAVIGATION (Navbar.jsx)
+   ========================================================================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.navbar .logo {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text-main);
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.nav-links li {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: var(--transition-fast);
+  position: relative;
+  font-size: 1rem;
+}
+
+.nav-links li:hover {
+  color: var(--text-main);
+}
+
+.nav-links li::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--primary);
+  transition: var(--transition-fast);
+}
+
+.nav-links li:hover::after {
+  width: 100%;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-main);
+}
+
+/* =========================================================================
+   FORMS & INPUTS (Feedback, Suggest)
+   ========================================================================= */
+.form-group {
+  margin-bottom: var(--spacing-md);
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-input, .filter-select {
+  width: 100%;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  transition: var(--transition-fast);
+}
+
+.form-input:focus, .filter-select:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.2);
+}
+
+/* =========================================================================
+   HOME PAGE & HERO SECTION
+   ========================================================================= */
+.hero-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: center;
+  min-height: 70vh;
+  padding: var(--spacing-lg) 0;
+  position: relative;
+}
+
+.hero-title {
+  font-size: 5rem;
+  line-height: 1.1;
+  margin-bottom: var(--spacing-md);
+  letter-spacing: -2px;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  max-width: 800px;
+  margin-bottom: var(--spacing-lg);
+  font-weight: 300;
+}
+
+.hero-stats {
+  display: flex;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--surface-border);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  font-family: var(--font-serif);
+  color: var(--accent);
+}
+
+.stat-label {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+}
+
+/* =========================================================================
+   FESTIVAL LIST & CARDS
+   ========================================================================= */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  justify-content: center;
+  background: var(--surface-color);
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid var(--surface-border);
+  backdrop-filter: var(--glass-blur);
+}
+
+.search-input {
+  flex: 1;
+  min-width: 250px;
+  padding: 14px 20px;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.filter-select {
+  padding: 14px 20px;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  color: white;
+  min-width: 150px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.filter-select option {
+  background: var(--bg-dark);
+  color: white;
+}
+
+.festival-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.festival-card {
+  background: var(--surface-color);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--surface-border);
+  border-radius: 20px;
+  padding: 24px;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.festival-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255,255,255,0.3);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+.festival-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: var(--spacing-xs);
+  color: var(--accent);
+}
+
+.festival-card .tag-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.card-tag {
+  background: rgba(255,255,255,0.1);
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.festival-card p {
+  color: var(--text-main);
+  opacity: 0.9;
+  margin-bottom: 24px;
+  font-weight: 300;
+  flex-grow: 1;
+}
+
+.festival-card button {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--surface-border);
+  color: white;
+}
+
+.festival-card button:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+
+/* =========================================================================
+   DETAILS PAGE
+   ========================================================================= */
+.details-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.details-header {
+  border-bottom: 1px solid var(--surface-border);
+  padding-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.details-header h1 {
+  font-size: 3rem;
+  color: var(--accent);
+  margin-bottom: var(--spacing-xs);
+}
+
+.details-meta {
+  display: flex;
+  gap: var(--spacing-md);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.details-section {
+  background: rgba(0,0,0,0.2);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: var(--spacing-md);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.details-section h3 {
+  color: var(--primary);
+  margin-bottom: 12px;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+}
+
+.language-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: var(--spacing-md);
+}
+
+
+/* =========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================= */
+@media (max-width: 768px) {
+  .hero-title { font-size: 3.5rem; }
+  .hero-subtitle { font-size: 1.1rem; }
+  .stat-number { font-size: 2rem; }
+  
+  .menu-icon { display: block; }
+  
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 250px;
+    background: rgba(15, 23, 42, 0.95);
+    flex-direction: column;
+    padding: var(--spacing-md);
+    border-radius: 0 0 0 16px;
+    border-left: 1px solid var(--surface-border);
+    border-bottom: 1px solid var(--surface-border);
+    backdrop-filter: var(--glass-blur);
+    transform: translateX(100%);
+    transition: transform var(--transition-fast);
   }
-  to {
-    transform: rotate(360deg);
+  
+  .nav-links.show {
+    transform: translateX(0);
   }
 }

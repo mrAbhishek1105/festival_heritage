@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Festival Heritage
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web application designed to explore cultural festival heritage, provide suggestions for new festivals, and submit feedback. Built with a React frontend and a Node.js/Express backend.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Explore Festivals**: View details and information about different cultural festivals.
+- **Suggest Festivals**: Users can submit suggestions for new festivals, which are saved to an Excel file (`festival_suggestions.xlsx`) by the backend.
+- **Feedback System**: Seamless integration for handling user feedback via email using the backend API.
+- **Modern UI**: Clean and professional interface utilizing glassmorphism aesthetics.
 
-### `npm start`
+## Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- `src/` & `public/` - React frontend source code and assets.
+- `server/` - Node.js Express backend API, handling email feedback and Excel file generation.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Installation & Setup
 
-### `npm test`
+### Prerequisites
+- [Node.js](https://nodejs.org/) (installed)
+- npm or yarn
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Frontend Setup
 
-### `npm run build`
+1. Open your terminal and navigate to the root directory `festival-heritage`.
+2. Install the necessary dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the React development server:
+   ```bash
+   npm start
+   ```
+4. The application should now be running at [http://localhost:3000](http://localhost:3000).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2. Backend Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Open a new terminal window and navigate to the backend directory:
+   ```bash
+   cd server
+   ```
+2. Install the backend dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file in the `server` directory (this is where you will add your email credentials or port number, e.g., `PORT=5000`, `EMAIL_USER=...`, `EMAIL_PASS=...`).
+4. Start the Node.js backend server:
+   ```bash
+   npm start
+   # or node server.js
+   ```
+5. The backend API is now ready and listening for requests.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Notes
+- Environment files (`.env`) and generated Excel files (`festival_suggestions.xlsx`) are ignored by Git to keep sensitive data and persistent local data out of version control.
+- If you use the Python scripts provided in the directory, make sure you have Python installed and the generated cache files will similarly be ignored.
