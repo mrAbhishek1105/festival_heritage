@@ -1,0 +1,30 @@
+--- HEADERS ---
+Date: Wed, 04 Mar 2026 12:53:13 GMT
+Content-Type: text/html
+Transfer-Encoding: chunked
+Connection: close
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=lwLINTXxYyMYyeGgJGaSjQEnTtuR3qPmqSrzQoLWEWdBBU5hTQjxkmOU3MXQL1%2BGlLGXPm6NQ3pevg06OtbSWkidcT7lMS79mOzv%2Frsqr81Kt%2BgS4%2B95LceV5EmNdA7y"}]}
+Last-Modified: Sat, 10 Jan 2026 13:57:05 GMT
+Server-Timing: cfCacheStatus;desc="DYNAMIC"
+Server-Timing: cfEdge;dur=7,cfOrigin;dur=178
+Vary: Accept-Encoding
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Server: cloudflare
+platform: hostinger
+panel: hpanel
+Retry-After: 60
+Content-Security-Policy: upgrade-insecure-requests
+X-turbo-charged-by: LiteSpeed
+cf-cache-status: DYNAMIC
+CF-RAY: 9d7105c8c8c9dc13-SIN
+alt-svc: h3=":443"; ma=86400
+
+--- TECH STACK GUESSES ---
+Found clues for: jQuery, Angular, Next.js, Cloudflare
+
+--- LINKS & SCRIPTS ---
+Scripts: ['https://www.clarity.ms/tag/iw3cvxk4ng', 'https://faves.grow.me/main.js', 'js/jquery.min.js', 'js/tof-navbar-min.js', 'js/tof-review-page.min.js', 'js/tof-tool-page-contributor-section.min.js', 'js/text-to-handwriting-converter.min.js', '/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js', 'js/email-decode.min.js', 'js/FileSaver.min.js', 'js/jszip.min.js', 'js/jspdf.umd.min.js', 'js/html2canvas.min.js', 'js/read-excel-file.min.js', 'js/email-decode.min.js']
+Styles & Links: ['https://texttohandwriting.in/', 'favicon.png', 'favicon.png', 'favicon.png', 'favicon.png', 'favicon.png', 'css/tof-navbar.min.css', 'css/tof-footer.min.css', 'css/tof-related-tool.min.css', 'css/tof-review-page.min.css', 'css/tof-tool-page.min.css', 'css/tof-affiliate.min.css', 'css/tof-tool-page-contributor-section.min.css', 'css/text-to-handwriting-converter.min.css', 'css/basic-styles.css']
+
+--- CONTENT SNIPPET ---
+<html data-theme="light" lang="en" translate="no"><head><script async="" src="https://www.clarity.ms/tag/iw3cvxk4ng"></script><script type="text/javascript">function ToogleTheme(){var e="light";localStorage.getItem("themeMode")?"dark"==localStorage.getItem("themeMode")&&(e="dark"):window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches&&(e="dark"),document.documentElement.setAttribute("class","hide-transitions"),document.documentElement.setAttribute("data-theme",e),setTimeou
